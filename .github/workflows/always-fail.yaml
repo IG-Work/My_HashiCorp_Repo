@@ -1,0 +1,26 @@
+name: Conditional PR Workflow
+
+on:
+  pull_request:
+    branches:
+      - master
+      - PR
+
+jobs:
+  check-branch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+
+      - name: Fail PR if not targeting master
+        if: github.event.pull_request.base.ref != 'master'
+        run: |
+          echo "This PR is targeting the master branch, so it will fail."
+          exit 1 # Will make the workflow fail
+
+      - name: Succeed PR if targeting master
+        if: github.event.pull_request.base.ref == 'master'
+        run: |
+          echo "This PR is not targeting the master branch, so it will succeed."
