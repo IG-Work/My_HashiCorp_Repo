@@ -5,6 +5,7 @@ on:
     branches:
       - master
       - PR
+      - PR1
 
 jobs:
   check-branch:
