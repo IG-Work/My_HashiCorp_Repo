@@ -1,3 +1,4 @@
+##this will work as variable set is applied.
 provider "azurerm" {
   features {}
   subscription_id="b8e2596b-e946-44ac-a26d-b40cbda624ef"
