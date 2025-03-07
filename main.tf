@@ -1,6 +1,9 @@
 ##this will work as variable set is applied.
 provider "azurerm" {
   features {}
+  client_id       = var.client_id
+  client_secret   = var.client_secret
+  tenant_id       = var.tenant_id
   subscription_id="b8e2596b-e946-44ac-a26d-b40cbda624ef"
    resource_provider_registrations = "none"
 }
